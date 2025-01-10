@@ -120,7 +120,6 @@ D:\Projectworking\ExchEmp\obj\Debug\net9.0\refint\ExchEmp.dll
 D:\Projectworking\ExchEmp\obj\Debug\net9.0\ExchEmp.pdb
 D:\Projectworking\ExchEmp\obj\Debug\net9.0\ExchEmp.genruntimeconfig.cache
 D:\Projectworking\ExchEmp\obj\Debug\net9.0\ref\ExchEmp.dll
-D:\Projectworking\ExchEmp\bin\Debug\net9.0\Utils\appsettings.json
 D:\Projectworking\ExchEmp\bin\Debug\net9.0\Microsoft.Extensions.Configuration.dll
 D:\Projectworking\ExchEmp\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
 D:\Projectworking\ExchEmp\bin\Debug\net9.0\Microsoft.Extensions.Configuration.FileExtensions.dll
@@ -129,3 +128,6 @@ D:\Projectworking\ExchEmp\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Ab
 D:\Projectworking\ExchEmp\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Physical.dll
 D:\Projectworking\ExchEmp\bin\Debug\net9.0\Microsoft.Extensions.FileSystemGlobbing.dll
 D:\Projectworking\ExchEmp\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+D:\Projectworking\ExchEmp\obj\Debug\net9.0\ExchEmp.sourcelink.json
+D:\Projectworking\ExchEmp\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Projectworking\ExchEmp\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

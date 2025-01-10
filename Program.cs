@@ -1,28 +1,29 @@
-﻿//Tiltle      - Job Portal Application
-//Authot      - C M Thajudheen
-//Created at  -19/12/2024
-//Updated at  -28/12/2024
-//Reviewed by - Sabapathi Shanmugam
+﻿/*Title      - Job Portal Application
+ Author     - C M Thajudheen
+ Created at - 19/12/2024
+ Updated at - 28/12/2024
+Reviewed by - Saraswathi Sathiah*/
 using System;
-using System.Data.SqlClient;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
 namespace JobPortal
 {
     class Program
     {
-        private static string _connectionString;
+        private static IConfiguration _configuration;
+        private static IServiceProvider _serviceProvider;
 
         static void Main(string[] args)
         {
             LoadConfiguration();
-            
+            ConfigureServices();
+
             bool exit = false;
 
             while (!exit)
             {
                 Console.WriteLine("\n_________________________________");
-
                 Console.WriteLine("\nWelcome to Job Portal, Choose an option:");
                 Console.WriteLine("1. Login as Employer");
                 Console.WriteLine("2. Login as Job Seeker");
@@ -32,19 +33,21 @@ namespace JobPortal
                 Console.Write("Enter your choice: ");
                 int choice = Convert.ToInt32(Console.ReadLine());
 
+                var authentication = _serviceProvider.GetService<Authentication>();
+
                 switch (choice)
                 {
                     case 1:
-                        Authentication.Login("Employer", _connectionString);
+                        authentication.Login("Employer");
                         break;
                     case 2:
-                        Authentication.Login("JobSeeker", _connectionString);
+                        authentication.Login("JobSeeker");
                         break;
                     case 3:
-                        Authentication.RegisterEmployer(_connectionString);
+                        authentication.RegisterEmployer();
                         break;
                     case 4:
-                        Authentication.RegisterJobSeeker(_connectionString);
+                        authentication.RegisterJobSeeker();
                         break;
                     case 5:
                         exit = true;
@@ -57,14 +60,32 @@ namespace JobPortal
             }
         }
 
+       
+
         private static void LoadConfiguration()
         {
-            var configuration = new ConfigurationBuilder()
+            _configuration = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
-                .AddJsonFile("Utils/appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile(@"D:\Projectworking\ExchEmp\Config\appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
+        }
 
-            _connectionString = configuration.GetConnectionString("EmpexchDb") ?? throw new InvalidOperationException("Connection string 'EmpexchDb' is not configured.");
+        private static void ConfigureServices()
+        {
+            //Container creation
+            var serviceCollection = new ServiceCollection();
+
+            // Register configuration 
+            serviceCollection.AddSingleton<IConfiguration>(_configuration);
+
+            // Register services
+            serviceCollection.AddSingleton<ILoggerService, LoggerService>();
+            serviceCollection.AddSingleton<IDatabaseConnection>(provider => new DatabaseConnection(_configuration.GetConnectionString("EmpexchDb")));
+            serviceCollection.AddSingleton<Authentication>();
+            serviceCollection.AddSingleton<Employer>();
+            serviceCollection.AddSingleton<JobSeeker>();
+
+            _serviceProvider = serviceCollection.BuildServiceProvider();
         }
     }
 }
