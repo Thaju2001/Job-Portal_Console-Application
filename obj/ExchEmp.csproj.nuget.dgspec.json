@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projectworking\\ExchEmp\\ExchEmp.csproj": {}
+    "D:\\ConsoleApplication\\JobPortal\\ExchEmp.csproj": {}
   },
   "projects": {
-    "D:\\Projectworking\\ExchEmp\\ExchEmp.csproj": {
+    "D:\\ConsoleApplication\\JobPortal\\ExchEmp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projectworking\\ExchEmp\\ExchEmp.csproj",
+        "projectUniqueName": "D:\\ConsoleApplication\\JobPortal\\ExchEmp.csproj",
         "projectName": "ExchEmp",
-        "projectPath": "D:\\Projectworking\\ExchEmp\\ExchEmp.csproj",
+        "projectPath": "D:\\ConsoleApplication\\JobPortal\\ExchEmp.csproj",
         "packagesPath": "C:\\Users\\thaju.mohammed\\.nuget\\packages\\",
-        "outputPath": "D:\\Projectworking\\ExchEmp\\obj\\",
+        "outputPath": "D:\\ConsoleApplication\\JobPortal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\thaju.mohammed\\AppData\\Roaming\\NuGet\\NuGet.Config"
